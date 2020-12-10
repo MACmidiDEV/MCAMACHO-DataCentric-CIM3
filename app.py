@@ -35,7 +35,7 @@ def add_link():
 def insert_link():
     LearningLinks = mongo.db.LearningLinks   
     LearningLinks.insert_one(request.form.to_dict())    
-    return redirect(url_for('getLearning'))    
+    return redirect(url_for('getLearn'))    
 
 @app.route('/edit_link/<link_id>')
 def edit_link(link_id):
@@ -52,12 +52,12 @@ def update_link(link_id):
         'mentor_message':request.form.get('mentor_message'),
         'category_name':request.form.get('category_name')
     })
-    return redirect(url_for('getLearning'))                         
+    return redirect(url_for('getLearn'))                         
 
 @app.route('/delete_link/<link_id>')
 def delete_link(link_id):
     mongo.db.LearningLinks.delete_many({"_id":ObjectId(link_id)})
-    return redirect(url_for('getLearning'))        
+    return redirect(url_for('getLearn'))        
 
 @app.route('/get_categories')    
 def get_categories():
