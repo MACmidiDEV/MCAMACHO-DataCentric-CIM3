@@ -1,0 +1,24 @@
+{% extends 'base.html' %} {% block content %}
+<div class="container">
+    <div class="row">
+        <ul class="collapsible">
+            {% for learn in LearningLinks %}        
+            <li>
+                <div class="collapsible-header">
+                    <i class="material-icons">filter_drama</i>
+                    <span class="right-align">{{learn.category_name}}</span>
+                </div>
+                <div class="collapsible-body">
+                    <div class="video-container">
+                        <div id="vid">
+                            <iframe src="{{learn.learn_link}}" frameborder="0">{{learn.learn_link}}</iframe>
+                        </div>
+                    </div>
+                    <p id="centWhite">{{learn.mentor_message}}</p>
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+{% endblock %}

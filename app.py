@@ -22,6 +22,10 @@ def landing():
 def liveLearn():
     return render_template("liveLearn.html")  
 
+@app.route('/getLearning')         
+def getLearn():
+    return render_template("learningLinks.html", LearningLinks=mongo.db.LearningLinks.find())   
+
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
             port=(os.environ.get('PORT')),
