@@ -1,12 +1,13 @@
 {% extends 'base.html' %}
 {% block content %}
-{% comment %} Video equipped web page for live learning via Jitsi Video API {% endcomment %}
 <head>
-	<title>LiveLearn | Link Learning</title>
+    <title>LiveLearn | Link Learning</title>
 </head>
-<nav id="inject" class="navbar navbar-expand-lg navbar-light bg-light" style="visibility: hidden;">
-</nav>
-<div id="meet" class="jumbotron" style="height:100vh;">
+<!-- Video equipped web page for live learning via Jitsi Video API -->
+
+<div class="video-container" style="height:95vh;">
+    <div id="meet">
+    </div>
 </div>
 <script src='https://meet.jit.si/external_api.js'></script>
 <script type="text/javascript">
