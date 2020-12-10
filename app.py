@@ -1,14 +1,15 @@
 import os
-from flask import Flask
+from flask import Flask, render_template
 
 if os.path.exists("env.py"):
     import env
 
 app = Flask(__name__)
 
-@app.route('/')
-def DCM3():
-    return "Data Centric Milestone3 Project"
+@app.route('/')                   
+@app.route('/landing') 
+def landing():
+    return render_template("home.html") 
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
