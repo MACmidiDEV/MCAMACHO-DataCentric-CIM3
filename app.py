@@ -43,6 +43,22 @@ def edit_link(link_id):
     all_categories =  mongo.db.Categories.find()
     return render_template('editLink.html', link=the_link, Categories=all_categories)
 
+@app.route('/update_link/<link_id>', methods=["POST"])
+def update_link(link_id):
+    links = mongo.db.LearningLinks
+    links.replace_one( {'_id': ObjectId(link_id)},
+    {
+        'learn_link':request.form.get('learn_link'),  
+        'mentor_message':request.form.get('mentor_message'),
+        'category_name':request.form.get('category_name')
+    })
+    return redirect(url_for('getLearning'))                         
+
+@app.route('/delete_link/<link_id>')
+def delete_link(link_id):
+    mongo.db.LearningLinks.delete_many({"_id":ObjectId(link_id)})
+    return redirect(url_for('getLearning'))        
+
  
 
 if __name__ == '__main__':
