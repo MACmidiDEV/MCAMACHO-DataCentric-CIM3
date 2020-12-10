@@ -1,6 +1,7 @@
 {% extends 'base.html' %} {% block content %}
 <div class="container">
     <div class="row">
+        <a href="{{url_for('add_link')}}" class="waves-effect waves-light btn btn-large">New Task</a>
         <ul class="collapsible">
             {% for learn in LearningLinks %}        
             <li>
