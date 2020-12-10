@@ -59,7 +59,37 @@ def delete_link(link_id):
     mongo.db.LearningLinks.delete_many({"_id":ObjectId(link_id)})
     return redirect(url_for('getLearning'))        
 
- 
+@app.route('/get_categories')    
+def get_categories():
+    return render_template('categories.html', Categories=mongo.db.Categories.find())
+
+@app.route('/add_category')
+def add_category():
+    return render_template('addCategory.html')   
+
+@app.route('/delete_category/<category_id>')
+def delete_category(category_id):
+    mongo.db.Categories.remove({'_id': ObjectId(category_id)})
+    return redirect(url_for('get_categories'))    
+
+@app.route('/insert_category', methods=['POST'])
+def insert_category():
+    category =  mongo.db.Categories
+    category.insert_one(request.form.to_dict())
+    return redirect(url_for('get_categories'))    
+
+@app.route('/edit_category/<category_id>')    
+def edit_category(category_id):
+    return render_template('editCategory.html', category=mongo.db.Categories.find_one({'_id': ObjectId(category_id)}))
+
+@app.route('/update_category/<category_id>', methods=['POST'])        
+def update_category(category_id):
+    Categories = mongo.db.Categories
+    Categories.update( 
+        {'_id': ObjectId(category_id)},
+        {'category_name': request.form.get('category_name')}
+    )
+    return redirect(url_for('get_categories')) 
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
