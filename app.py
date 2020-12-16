@@ -4,73 +4,85 @@ from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 if os.path.exists("env.py"):
     import env
-  
-app = Flask(__name__)
 
+
+app = Flask(__name__)
 app.config["MONGO_DBNAME"] = os.environ.get('MONGO_DBNAME')
 app.config["MONGO_URI"] = os.environ.get('MONGO_URI')
-
 mongo = PyMongo(app)
 
+
 @app.route('/')                    
+
 
 @app.route('/landing') 
 def landing():
     return render_template("home.html") 
 
+
 @app.route('/liveLearn')
 def liveLearn():
     return render_template("liveLearn.html")  
 
-@app.route('/getLearning')         
-def getLearn():
+
+@app.route('/get_Learning')         
+def get_Learn():
     return render_template("learningLinks.html", LearningLinks=mongo.db.LearningLinks.find())   
+
 
 @app.route('/add_link')
 def add_link():
     return render_template('addLink.html',
                            Categories=mongo.db.Categories.find())        
 
+
 @app.route('/insert_link', methods=['POST'])
 def insert_link():
     LearningLinks = mongo.db.LearningLinks   
     LearningLinks.insert_one(request.form.to_dict())    
-    return redirect(url_for('getLearn'))    
+    return redirect(url_for('get_Learn'))    
+
 
 @app.route('/edit_link/<link_id>')
 def edit_link(link_id):
     the_link = mongo.db.LearningLinks.find_one({"_id": ObjectId(link_id)})
-    all_categories =  mongo.db.Categories.find()
+    all_categories = mongo.db.Categories.find()
     return render_template('editLink.html', link=the_link, Categories=all_categories)
+
 
 @app.route('/update_link/<link_id>', methods=["POST"])
 def update_link(link_id):
     links = mongo.db.LearningLinks
-    links.replace_one( {'_id': ObjectId(link_id)},
+    links.replace_one({'_id': ObjectId(link_id)},
     {
-        'learn_link':request.form.get('learn_link'),  
-        'mentor_message':request.form.get('mentor_message'),
-        'category_name':request.form.get('category_name')
+        'learn_link': request.form.get('learn_link'),  
+        'mentor_message': request.form.get('mentor_message'),
+        'category_name': request.form.get('category_name')
     })
-    return redirect(url_for('getLearn'))                         
+    return redirect(url_for('get_Learn'))                         
+
 
 @app.route('/delete_link/<link_id>')
 def delete_link(link_id):
-    mongo.db.LearningLinks.delete_many({"_id":ObjectId(link_id)})
-    return redirect(url_for('getLearn'))        
+    mongo.db.LearningLinks.delete_many({"_id": ObjectId(link_id)})
+    return redirect(url_for('get_Learn'))        
+
 
 @app.route('/get_categories')    
 def get_categories():
     return render_template('categories.html', Categories=mongo.db.Categories.find())
 
+
 @app.route('/add_category')
 def add_category():
     return render_template('addCategory.html')   
+
 
 @app.route('/delete_category/<category_id>')
 def delete_category(category_id):
     mongo.db.Categories.remove({'_id': ObjectId(category_id)})
     return redirect(url_for('get_categories'))    
+
 
 @app.route('/insert_category', methods=['POST'])
 def insert_category():
@@ -78,9 +90,11 @@ def insert_category():
     category.insert_one(request.form.to_dict())
     return redirect(url_for('get_categories'))    
 
+
 @app.route('/edit_category/<category_id>')    
 def edit_category(category_id):
     return render_template('editCategory.html', category=mongo.db.Categories.find_one({'_id': ObjectId(category_id)}))
+
 
 @app.route('/update_category/<category_id>', methods=['POST'])        
 def update_category(category_id):
@@ -90,6 +104,7 @@ def update_category(category_id):
         {'category_name': request.form.get('category_name')}
     )
     return redirect(url_for('get_categories')) 
+
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),

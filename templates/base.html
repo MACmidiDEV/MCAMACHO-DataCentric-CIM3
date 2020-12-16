@@ -9,9 +9,10 @@
 	<title>Little Links Learning</title>
 </head>
 <body>
+	<!-- navBar & sideNav -->
 	<header>
 	<!-- navbar content here  -->
-		<nav class="navbar sticky-action navbar-expand-lg navbar-light">
+		<nav id="nav" class="navbar sticky-action navbar-expand-lg navbar-light">
 			<a class="brand-logo nav-link active" id="brandLogo" href="/">Little
 				<span><small id="logo">LINKS</small></span>
 			</a>
@@ -19,45 +20,45 @@
                 <i class="material-icons" id="nav-menu">menu</i>
             </a>
 		</nav>
+		<!-- sidenav content here  -->
 		<ul id="slide-out" class="sidenav">
 			<li>
-				<div class="user-view">
-					<a href="/getLearning"><span class="red-text name">Learning<span><small>LINKS</small></span></a>
-                    <span class="red-text name">Go Live NOW!</span>
+				<div class="user-view">	
+					<span class="pink-text name">Little<small>LINKS</small></span>
 				</div>
 			</li>
-			<li><a href="/liveLearn">live<i class="material-icons">tv</i>Learn</a></li>
 			<li>
                 <div class="divider"></div>
             </li>
-            <li><a class="subheader">Manage Database</a></li>
-            <li><a href="/getLearning"><i class="material-icons">subscriptions</i>Learning Links</a></li>
-            <li><a href="/add_link"><i class="material-icons">add_comment</i>New Entry</a></li>
-            <li><a href="/add_category"><i class="material-icons">library_add</i>Add Category</a></li>
-            <li><a href="/get_categories"><i class="material-icons">chrome_reader_mode</i>Categories Database</a></li>
+			<li>
+				<a href="/liveLearn">live<i class="material-icons">tv</i>Learn</a>
+			</li>
+			<li>
+                <div class="divider"></div>
             </li>
+			<li>
+				<a class="subheader">Manage Database</a>
+			</li>
+            <li>
+				<a href="/get_Learning"><i class="material-icons">subscriptions</i>Learning Links</a>
+			</li>
+			<li>
+				<a href="/add_link"><i class="material-icons">add_comment</i>New Entry</a>
+			</li>
+			<li>
+				<a href="/add_category"><i class="material-icons">library_add</i>Add Category</a>
+			</li>
+			<li>
+				<a href="/get_categories"><i class="material-icons">chrome_reader_mode</i>Categories Database</a>
+			</li>
 		</ul>
-        </header>
+	</header>
+	<!-- flask templating lang. injection point. routes web pages  -->
 	{% block content %}{% endblock %}
-	<footer class="page-footer">
-            <div class="footer-copyright">
-                <div class="container-fluid center">
-                    <a class="grey-text text-lighten-4" href="/">© 2020 MAC|media Software Solutions ©</a>
-                </div>
-            </div>
-        </footer>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"
 		integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-	<script>
-		$(document).ready(function () {
-			$('.collapsible').collapsible();
-			$('.parallax').parallax();
-			$('.sidenav').sidenav();
-			$('.materialboxed').materialbox();
-		});
-		</script>
+	<script src="/static/javascript/script.js"></script>
 	<script src='https://meet.jit.si/external_api.js'></script>
-	
 </body>
 </html>

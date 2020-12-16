@@ -1,0 +1,168 @@
+/* main styles and formatting */
+body {
+    height: 100vh;
+    font-weight: 400;
+    font-size: large;
+}
+
+.endLogo {
+    margin-top: 300px;
+    color: white;
+    text-shadow: 1px 1px 2px rgb(0, 0, 0), 0 0 1em rgb(255, 255, 255), 0 0 0.2em rgb(255, 255, 255);
+    margin-left: 50%;
+}
+
+.endLogo span {
+    font-weight: 600;
+}
+
+.jumbotron-wrapper-text {
+    background-color: rgba(185, 180, 180, 0.445);
+}
+
+#txtStyle {
+    font-size: 24px;
+}
+
+.img-overlay {
+    width: 60%;
+    margin-left: 2em;
+    padding: 2em;
+}
+
+.centPos {
+    left: 20%;
+}
+
+.card {
+    background-color: rgba(255, 255, 255, 0.281);
+}
+
+#call {
+    color: white;
+    text-shadow: 1px 1px 2px rgb(0, 0, 0), 0 0 1em rgb(255, 255, 255), 0 0 0.2em rgb(255, 255, 255);
+}
+
+#liveLearn {
+    padding: .5em;
+    width: 65%;
+    background-color: rgba(244, 232, 132, 0.58);
+}
+
+.bq-title {
+    font-size: x-large;
+}
+
+.card-title {
+    text-shadow: 1px 1px 2px rgb(0, 0, 0), 0 0 1em rgb(255, 255, 255), 0 0 0.2em rgb(255, 255, 255);
+}
+
+.leadFont {
+    font-size: large;
+}
+
+.linksIcon {
+    font-size: larger;
+}
+
+.lead {
+    padding-left: 2%;
+    padding-right: 2%;
+}
+
+.collapsible-header {
+    color: white;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    line-height: 1.5;
+    padding: 1rem;
+    background-color: rgba(233, 126, 219, 0.38);
+    border-bottom: 3px solid #62e353;
+}
+/* NAV and SideNav styles */
+#sidenav {
+    background-color: #614d94c7 !important;
+}
+
+.sidenav-trigger {
+    font-size: 36px!important;
+    margin-right: 5%;
+    display: block !important;
+}
+
+.inject {
+    display: inline-block;
+}
+
+#nav {
+    background-color: rgba(74, 80, 172, 0.94) !important;
+    position: fixed;
+    z-index: 10;
+}
+
+i #nav-menu>.material-icons {
+    font-size: 36px!important;
+    margin-right: 5%;
+    display: block !important;
+}
+
+.subheader {
+    color: rgba(128, 255, 212, 0.79) !important;
+    background-color: rgba(255, 0, 0, 0.411);
+}
+
+.sidenav {
+    background-color: rgba(74, 80, 172) !important;
+}
+
+.sidenav-trigger {
+    color: white!important;
+}
+
+#logo {
+    font-weight: 200;
+}
+
+#brandLogo {
+    left: 10%;
+    padding-left: 10%;
+}
+
+.sidenav-trigger {
+    right: 5% !important;
+    display: block !important;
+    font-size: 36px;
+}
+
+.sidenav li>a {
+    color: rgb(255, 255, 255);
+}
+
+.sidenav li>a:hover {
+    background-color: rgba(255, 0, 0, 0.411);
+    color: rgba(128, 255, 212, 0.79) !important;
+}
+
+.sidenav li>a>i:hover {
+    color: white;
+}
+
+.name {
+    background-color: rgba(128, 255, 212, 0.79);
+}
+/* Media Queries */
+@media only screen and (max-width: 992px) {
+    .sidenav-trigger {
+        font-size: 42px;
+    }
+}
+
+@media only screen and (min-width: 993px) {
+    .sidenav-trigger {
+        font-size: 42px;
+    }
+}

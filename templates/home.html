@@ -1,42 +1,69 @@
 {% extends 'base.html' %}
 {% block content %}
+<!-- Home page and all sections for the home page  -->
 <div class="parallax-container">
 	<div class="parallax hero">
-		<img src="/static/images/heroBg.jpg">
+		<img src="/static/images/heroBg.jpg" alt="background image small child fliping through pages of a book">
 	</div>
 </div>
+<!-- site info -->
 <div class="parallax-container section white">
 	<div class="container">
 		<h2 id="txtStyle" class="header">YouTube<span><small><span><small>LINK</small></span>Manager</small></span></h2>
 		<p class="grey-text text-darken-3 lighten-3">Proactively engage in your childs learning.</p>
 		<div class="blockQ col-6 offset-s6 right">
-			<div class="row">
-				<p> Join us in gathering educational videos that will ingage your childern
-					<span>
-						<blockquote>
-							<h3>Help your child develope a passion for learnig and make it <strong>FUN</strong> </h3>
-						</blockquote>
-						<p class="right">
-							Prepare them for the road ahead.
-						</p>
-					</span>
-				</p>
-			</div>
+        <div class="row">
+            <p>Join us in gathering educational videos that will ingage your childern</p>
+            <blockquote>
+                <h3>Help your child develope a passion for learnig and make it <strong>FUN</strong> </h3>
+            </blockquote>
+            <p class="right">
+              Prepare them for the road ahead.
+            </p>  
+        </div>
 		</div>
-		<img src="/static/images/gautam.jpg" alt="" class="circle responsive-img" />
+		<img src="/static/images/gautam.jpg" alt="background image of a kids class room setting, wooden blocks atop a desk" class="circle responsive-img" />
 	</div>
 </div>
-
+<!-- bootomSheet model w/ form submit -->
 <div class="parallax-container">
     <div class="jumbotron right">
         <div class="container center-align shadow p-3 mb-5 bg-white rounded">
             <div class="jumbotron-wrapper-text">
-                <h2 id="call">Manage a database to keep your child’s mind active.</h2>
+                <h2 id="call">Do you have a educational video that you would like to share?</h2>
+            </div>
+            <button data-target="modal1" class="btn-large btn modal-trigger">upload</button>
+            <div id="modal1" class="modal bottom-sheet">
+                <div class="modal-content">
+                    <h4>LittleLinks | Learning Links</h4>
+                    <form action="{{ url_for('insert_link') }}" method="POST" class="col s12">
+                        <div class="input-field col s12 l6">
+                            <i class="material-icons prefix">library_add</i>
+                            <input type="text" required id="category_name" name="category_name" value="{{category_name}}">
+                            <label for="category_name">Category Name</label>
+                        </div>
+                        <div class="input-field col s12 l6">
+                            <i class="material-icons prefix">subscriptions</i>
+                            <input type="text" required id="learn_link" name="learn_link" value="{{learn_link}}">
+                            <label for="learn_link">Learning Link</label>
+                        </div>
+                        <div class="input-field col s12 l6">
+                            <i class="material-icons prefix">add_comment</i>
+                            <input type="text" required id="mentor_message" name="mentor_message">
+                            <label for="mentor_message">Mentor Message</label>
+                        </div>
+                        <button class="btn waves-effect waves-light" type="submit">add Learning Link<i class="material-icons right">playlist_add</i>
+                        </button>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                <a href="/get_categories" class="modal-close waves-effect waves-green btn-flat">View Categories</a>
+                </div>
             </div>
         </div>
     </div>
     <div class="parallax">
-        <img src="/static/images/jonathan.jpg" style="height:1200px; padding-top:100px">
+        <img src="/static/images/jonathan.jpg" alt="background image small child reading a book" style="height:1200px; padding-top:100px">
         <div class="container">
             <div class="col-12">
                 <!-- SPACER -->
@@ -44,37 +71,43 @@
         </div>
     </div>
 </div>
+<!-- info icons Section. displays information about the website  -->
+<div class="section">
+    <div class="row">
+      <div class="col s12 m4">
+        <div class="icon-block">
+          <h2 class="center pink-text"><i class="linksIcon material-icons">subscriptions</i></h2>
+          <h5 class="center">Learning Links</h5>
+          <p class="light">The main focus of LittleLinks is none other than Learning Links, they provide parents the ability to add educational content directly to our website. Help us create the largest portal geared towards toddler learning.</p>
+        </div>
+      </div>
+
+      <div class="col s12 m4">
+        <div class="icon-block">
+          <h2 class="center pink-text"><i class="linksIcon material-icons">library_add</i></h2>
+          <h5 class="center">Learning Categories</h5>
+          <p class="light">Learning Links are orginized by the category of educational content. LittleLinks website allows you to add edit or delete categories in our database that is connected to LittleLinks website.</p>
+        </div>
+      </div>
+
+      <div class="col s12 m4">
+        <div class="icon-block">
+          <h2 class="center pink-text"><i class="linksIcon material-icons">tv</i></h2>
+          <h5 class="center">Live Learning</h5>
+          <p class="light">In responce to COVID 19 we have implminted a live video service via JitSi Meet API. This allows our users to join a online learning enviorment directed towards toddlers.</p>
+        </div>
+      </div>
+    </div>
+</div>
+<!-- ending photo and logo -->
 <div class="parallax-container">
     <div class="parallax col-4">
         <div class="img-overlay">
-            <img img src="/static/images/markus1.jpg" style="height:1200px; padding-top:100px">
+            <img src="/static/images/markus1.jpg" alt="background image of small child holding a camera" style="height:1200px; padding-top:100px">
             <div class="card border-0 shadow my-5">
-                <div class="card-body p-5">
-                    <h4 class="card title center">Routine</h4>
-                    <p class="flow-text lead font-weight-light">First, routine is critical. Kids in their early years thrive on routine, and they most consistently get this in school. It’s important to establish a daily routine while your child is at home and to follow it. Set times for reading,
-                        math, snack time, lunch, and even free play.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="parallax-container">
-    <div class="parallax row">
-        <img style="height:1200px; " src="/static/images/agence.jpg/">
-        <div class="card" id="liveLearn">
-            <div class="card-body center">
-                <p class="card title bq-title z-depth-5">Live Learn</p>
-                <blockquote class="blockquote bq-warning col-6">
-                    <p id="learnTitle" class="flow-text leadFont col-6">
-                        Then ask your child to say the next sentence. Continue taking turns adding to the story until it is finished. This is a great development activity for you and your child.
-                    </p>
-                    <blockquote class="blockquote bq-warning col-6">
-                        <p class="flow-text leadFont col-6">
-                            With live video chat work together to make up a fun story. Begin a with an opening like “Once upon a time, there was a hungry dog.”
-                        </p>
-                    </blockquote>
-                </blockquote>
+                <div class="jumbotron-wrapper-text">
+                    <h1 class="endLogo">Little<span><small>LINKS</small></span></h1>
+                </div>                        
             </div>
         </div>
     </div>
