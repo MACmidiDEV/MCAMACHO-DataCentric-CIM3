@@ -5,11 +5,19 @@ body {
     font-size: large;
 }
 
+.parallax-container {
+    height: 48vh;
+}
+
+.callout {
+    margin-top: 20%;
+}
+
 .endLogo {
     margin-top: 300px;
     color: white;
     text-shadow: 1px 1px 2px rgb(0, 0, 0), 0 0 1em rgb(255, 255, 255), 0 0 0.2em rgb(255, 255, 255);
-    margin-left: 50%;
+    margin-left: 35%;
 }
 
 .endLogo span {
@@ -62,7 +70,8 @@ body {
 }
 
 .linksIcon {
-    font-size: larger;
+    font-size: 2em;
+    color: rgba(74, 80, 172, 0.94);
 }
 
 .lead {
@@ -156,6 +165,10 @@ i #nav-menu>.material-icons {
 }
 /* Media Queries */
 @media only screen and (max-width: 992px) {
+    #brandLogo {
+        left: 20%;
+        padding-left: 10%;
+    }
     .sidenav-trigger {
         font-size: 42px;
     }

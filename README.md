@@ -14,7 +14,7 @@ So that my toddler can continue their education as daycare did not provide chrom
 My goal in the design was to make it as easy as possible to access all information on the site while striving to keep the page with collected videos simple enough to be managed by a toddler.
 
 ## Scope
-With COVID-19 we have to find use of all this new time and still engage our children. Link Learning is a great way to begin to accomplish this task. In building this web application a huge design concideration were the toddlers that will be end users.
+considerationWith COVID-19 we have to find use of all this new time and still engage our children. Link Learning is a great way to begin to accomplish this task. In building this web application a huge design concideration were the toddlers that will be end users.
 
 ## Utilized Technologies
 ### Languages
@@ -66,7 +66,7 @@ Milestone 4 will provide me with the skills to further control the access of use
 local env.py holds config vars 'SECRET_KEY', 'MONGO_URI' and 'DEVELOPMENT', which have the values that are required in the app.py file for the mongo URI password, the secret key password and the debug value.
 
 ### Heroku Configuration Variables
-heroku config vars 'IP', 'PORT', 'SECRET_KEY', 'MONGO_URI' and 'DEVELOPMENT' variables. The 'SECRET_KEY' and 'MONGO_URI' contain the same passwords on Heroku as they do locally in the env.py file. The 'DEVELOPMENT' variable is set to 1 during build and 0 in production
+Heroku config vars 'IP', 'PORT', 'SECRET_KEY', 'MONGO_URI' and 'DEVELOPMENT' variables. The 'SECRET_KEY' and 'MONGO_URI' contain the same passwords on Heroku as they do locally in the env.py file. The 'DEVELOPMENT' variable is set to 1 during build and 0 in production
 
 ## Deployments and Installations
 This site is hosted using GitHub, deployed directly from the master branch to Heroku.
@@ -76,7 +76,10 @@ The GitRepo can be found on [GitHub](https://github.com/MACmidiDEV/MCAMACHO-Data
 - `python3 -m venv venv`
 - `source venv/bin/activate`
 - `pip3 install -r requirements.txt`
+- `create env.py file and add config vars`
+visit link below for more details on config vars
 - for security purposes you will need your own database connection string to [mongoDB](https://docs.mongodb.com/manual/reference/connection-string/)
+- `run app.py to launch web application `
 
 ## Testing
 - [JavaScript Validator](https://jshint.com/)
