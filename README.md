@@ -25,21 +25,24 @@ considerationWith COVID-19 we have to find use of all this new time and still en
 - Python3
 
 ### Frameworks & Technologies
-- Materialize: For responsive web designing 
-- Flask: HTML templating & routing
-- Git: version control
+- Materialize: For responsive web designing used throughout site and all icons
+- Flask: HTML templating & routing of webpages
+- Git: version control file history of entire build
 - VSCode: code editor
 - Github: hosts the website
 - Jinja2: Python web template engine
 
 ## UX
+## Wireframes
+- ![LittleLinks-wireframe](https://raw.githubusercontent.com/MACmidiDEV/MCAMACHO-DataCentric-CIM3/master/static/images/wireframe.png "Wireframe")
+
 ### Surface
 Some default component color schemes were combined with bold crayon like colors to ensue user conformability throughout the site 
 and maintain a approachable environment for kids to interact with.
 
 ## Features
 - LearningLinks: Users can add multiple LearningLinks, each LearningLink contains the Category, youTube video and a mentored message.
-- Home page: Landing page informational, everything about the site. SideNav and floating button provide all navigational links
+- Home page: Landing page informational, everything about the site. SideNav provides access to all navigational links and features a upload button to quickly pull   up a bottom sheet modeal and upload a record in the database.
 - LiveLearn page: Enables a user to start or join a video conference
 - LearningLinks page: Enables a user to view all LearningLinks
 - Add LearningLink page: Enables a user to add a new LearningLink
@@ -91,6 +94,8 @@ This site was tested across multiple browsers (Chrome, Safari, Internet Explorer
 
 - Checked if each link on the home page lead to the correct web page
     - All links lead to the right web page
+- Tested if adding LearningLink from the bottom sheet pop up model form worked and if a user was able to submit that record in the database
+    - Tests worked right, as I was able to add a LearningLink and the record posted in database    
 - Tested if adding LearningLink to the LearningLinks page worked and if a user was able to delete and edit them
     - Tests worked right, as I was able to add, edit and delete the LearningLink
 - Tested if other web browsers could see the LearningLink added to the database
